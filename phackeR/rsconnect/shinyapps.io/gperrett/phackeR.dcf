@@ -1,0 +1,14 @@
+name: phackeR
+title: phackeR
+username:
+account: gperrett
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5808424
+bundleId: 5657953
+url: https://gperrett.shinyapps.io/phackeR/
+when: 1646769631.22172
+lastSyncTime: 1646769631.22173
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: data/base_draw.rds
