@@ -1,10 +1,13 @@
+#COMMENT: all scripts should generally start off with a comment describing the purpose, author(s), and any additional notes regarding structure/libraries
+#In this situation, the purpose of this script is to create plots for the sample simulations for our p-hacking program
+
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
   store <- reactiveValues()
-  
+  #COMMENT: include purpose this logic- we are collecting data for our simulation which will output the histogram
   observeEvent(input$sim0, {
     if(input$population0 == 'TRUE'){
-      progressSweetAlert(
+      progressSweetAlert(#COMMENT: what is the purpose of sweetalert? this function usually has a lot of dependencies. Goes back to indicating what packages are needed to run this script. 
         id = "sim0.1_load",
         title = paste("Collecting Data"),
         value = 0,
@@ -32,7 +35,7 @@ shinyServer(function(input, output) {
     }
     
   })
-  
+   #COMMENT: include purpose this logic- creating the histogram
   output$p1 <- renderPlot({
     if (length(store$draw_sim0.2) != 0 & input$population0 == 'FALSE') {
       p <- individual_plot(unlist(store$draw_sim0.2))
@@ -44,7 +47,7 @@ shinyServer(function(input, output) {
     
     return(p)
   })
-
+#what does this do? 
     #observeEvent(input$sim1.1, {browser()})
     observeEvent(input$sim1.1, {
       if (input$population1 == 'TRUE') {
