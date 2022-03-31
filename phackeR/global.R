@@ -1,3 +1,4 @@
+#COMMENT: all scripts should generally start off with a comment describing the purpose, author(s)
 library(shiny)
 library(parallel)
 library(tidyverse)
