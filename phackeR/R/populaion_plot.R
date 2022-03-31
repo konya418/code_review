@@ -1,5 +1,12 @@
+#COMMENT: all scripts should generally start off with a comment describing the purpose, author(s), and any additional notes regarding structure/libraries
+#In this situation, the purpose of this script is to create a function that compares the data without p-hacking
+
+#COMMENT: libraries used were not included in the beginning. Include GGPLOT2 library since it is being heavily utilized in this script
+#COMMENT: parameters of the function are not properly defined, making it easier to know if any errors have been made since we can't crasp the full picture
+
 population_plot <- function(p.values, compare = F) {
   fp <- round((sum(p.values < .05)/length(p.values)), 3) * 100
+  #what does p stand for
   p <-
     tibble(p = p.values,
            error = ifelse(p < .05, 'false positive', 'true negative')) %>%
@@ -27,7 +34,7 @@ population_plot <- function(p.values, compare = F) {
     theme_classic() +
     theme(legend.position = 'top')
 
-
+#comment: what is this if statement trying to help us solve for? 
   if(isTRUE(compare)){
     p.ref <-
       unlist(mclapply(1:length(p.values), function(i) {
