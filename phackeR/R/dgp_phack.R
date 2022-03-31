@@ -1,8 +1,15 @@
+#COMMENT: all scripts should generally start off with a comment describing the purpose, author(s), and any additional notes regarding structure/libraries
+#In this situation, the purpose of this script is to create a data generating function to draw data to create sample simulations for our p-hacking program
+
+#libraries 
 library(parallel)
+
+#COMMENT: explain functions created, such as the one below. We are creating a function to identify records that are "not in" type
 `%notin%` <- Negate(`%in%`)
-
+#COMMENT:Comments should be added in-line where possible to explain what the function seeks to do 
 dgp <- function(n = 40, n2 = NULL, rho = .5, n.dependent = 1, type = NULL){
-
+#what is the purpose of all the different parameters? There should be a description of the different parameters commented beside them
+ #what is "A-D"??
   if('B' %in% type & is.null(n2)){n2 <- floor(n*.4)}
   Rho <- diag(nrow = n.dependent, ncol = n.dependent)
   Rho[lower.tri(Rho)] <- rho
@@ -46,6 +53,7 @@ dgp <- function(n = 40, n2 = NULL, rho = .5, n.dependent = 1, type = NULL){
 
   
   if ('C' %in% type) {
+    #COMMENt: what are the purposes of the 4 different "test 1" types? it is difficult to understand how the four different test types fall into place with this function
     test1 <-
       lapply(1:n.dependent, function(i) {
         fit <- coef(summary(lm(Y[, i] ~ g * z)))
