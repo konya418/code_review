@@ -115,7 +115,7 @@ dgp <- function(n = 40, n2 = NULL, rho = .5, n.dependent = 1, type = NULL){
   
   if ('B' %in% type) {
     if (min(unlist(ps)) > .05) {
-      Y <-
+      Y <- #again, unclear what these variables are creating
         rbind(Y, MASS::mvrnorm(
           n = n2,
           mu = rep(0, n.dependent),
