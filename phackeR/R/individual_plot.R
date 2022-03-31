@@ -1,4 +1,10 @@
+#COMMENT: all scripts should generally start off with a comment describing the purpose, author(s), and any additional notes regarding structure/libraries
+#In this situation, the purpose of this script is to create plots for the sample simulations for our p-hacking program
+
+#COMMENT: libraries used were not included in the beginning. Include GGPLOT2 library since it is being heavily utilized in this script
+
 individual_plot <- function(p.value){
+  #COMMENT:Explain the purposes of lines 8-13 as they play a role in the labellings for the plot
   if (p.value < .05) {
     result <- 2
     interpretation <- 'false positive!'
